@@ -47,16 +47,32 @@ function arrayCopy(src,srcPos,dst,dstPos,length){
 }
 
 
+// function count(array, str){
+//
+//     let count = 0;
+//     if (Array.isArray(array)) {
+//
+//             array.forEach((item) => {if (item===str) count++});
+//             return count;
+//     }
+//         return false;
+// }
+
 function count(array, str){
 
     let count = 0;
-    if (Array.isArray(array)) {
 
-            array.forEach((item) => {if (item===str) count++});
-            return count;
+    if (Array.isArray(array)) {
+        array.reduce((acc, item) => {
+            if (item === str) count++;
+        });
+
+        return count;
     }
-        return false;
+
+    else return false;
 }
+
 function displayOccurrences(array){
 
     if (Array.isArray(array)) {
@@ -88,3 +104,7 @@ function lengthSort(array){
         return false;
 
 }
+
+console.log(count(strArray1, "ddd")); // expected 1
+console.log(count(numArray,6)); // expected 3
+console.log(count(numArray,-10)); // expected 0
